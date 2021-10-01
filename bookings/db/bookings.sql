@@ -13,10 +13,10 @@ CREATE TABLE members(
 
 CREATE TABLE sesions(
     id SERIAL PRIMARY KEY,
-    class_name VARCHAR(255),
+    sesion_name VARCHAR(255),
     duration INT,
-    class_date FLOAT,
-    class_time FLOAT,
+    sesion_date FLOAT,
+    sesion_time FLOAT,
     capacity INT,
     active_status BOOLEAN
 
@@ -25,8 +25,8 @@ CREATE TABLE sesions(
 CREATE TABLE bookings(
     id SERIAL PRIMARY KEY,
     members_id INT REFERENCES members(id) ON DELETE CASCADE,
-    sesions_id INT REFERENCES sesions(id) ON DELETE CASCADE,
-    review TEXT
+    sesions_id INT REFERENCES sesions(id) ON DELETE CASCADE
+    
 );
 
 
