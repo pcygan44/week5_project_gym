@@ -6,6 +6,10 @@ from models.sesion import Sesion
 import repositories.member_repositories as member_repositories
 import repositories.sesion_repositories as sesion_repositories
 
+member_repositories.delete_all()
+sesion_repositories.delete_all()
+
+
 member1 = Member('Jim','Black',True, True)
 member_repositories.create_member(member1)
 
@@ -14,3 +18,9 @@ member_repositories.create_member(member2)
 
 sesion1 = Sesion('swimming',30,'01/10/2022' ,"11:00", 4 ,True)
 sesion_repositories.create_sesion(sesion1)
+
+
+print(sesion_repositories.select_all())
+
+print(member_repositories.select(54))
+pdb.set_trace()

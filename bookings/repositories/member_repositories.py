@@ -11,3 +11,38 @@ def create_member(member):
     member.id = results[0]['id']
     return member
     
+def select_all():
+    members = []
+
+    sql= "SELECT * FROM members"
+    results = run_sql(sql)
+    for row in results:
+        member = Member(row['first_name'], row['last_name'],row['membership'], row['active_status'], row['id'])
+        members.append(member)
+    return members
+
+def select(id):
+    member = None 
+    sql = "SELECT * FROM members WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        member = Member (result['first_name'],result['last_name'],result['membership'],result['active_status'], result['id'])
+    return member
+
+def delete_all():
+    sql = "DELETE FROM members"
+    run_sql(sql)
+
+def sesions(member):
+    sesions = []
+    sql = "SELECT sesions.* FROM sesions INNER JOIN bookings ON bookings.sesion_id = sesion.id WHERE member_id = %s"
+    values = [member.id]
+
+    results = run_sql(sql, values)
+
+    for row in results:
+        sesion = Sesion( row['sesion_name'],row['duration'],row['sesion_date'],row['sesion_time'],row['capacity'],row['active_status'],row['id'])
+        sesions.append(sesion)
+    return sesions
