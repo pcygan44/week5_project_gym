@@ -1,6 +1,6 @@
 class Sesion:
 
-    def __init__(self, id, sesion_name, duration , sesion_date, sesion_time, capacity, active_status):
+    def __init__(self, sesion_name, duration , sesion_date, sesion_time, capacity, active_status, id = None):
         self.id = id 
         self.sesion_name = sesion_name
         self.duration = duration

@@ -15,8 +15,8 @@ CREATE TABLE sesions(
     id SERIAL PRIMARY KEY,
     sesion_name VARCHAR(255),
     duration INT,
-    sesion_date FLOAT,
-    sesion_time FLOAT,
+    sesion_date VARCHAR(255),
+    sesion_time VARCHAR(255),
     capacity INT,
     active_status BOOLEAN
 
