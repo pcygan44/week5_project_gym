@@ -46,3 +46,8 @@ def sesions(member):
         sesion = Sesion( row['sesion_name'],row['duration'],row['sesion_date'],row['sesion_time'],row['capacity'],row['active_status'],row['id'])
         sesions.append(sesion)
     return sesions
+
+def update(member):
+    sql = "UPDATE members SET(first_name, last_name, membership, active_status) = (%s,%s,%s,%s) WHERE id - %s"
+    values = [member.first_name, member.last_name, member.membership, member.active_status, member.id]
+    run_sql(sql, values)
