@@ -33,3 +33,22 @@ def create_sesion():
     sesion_repositories.create_sesion(sesion)
     return redirect("/sesions")
     # return render_template("sesion/addnew.html", sesions = sesions)   #redirect("/sesions")
+
+@sesions_blueprint.route("/sesion/<id>/edit")
+def edit_sesion(id):
+    sesion = sesion_repositories.select(id)
+    return render_template('sesion/edit.html', sesion = sesion )
+
+@sesions_blueprint.route("/sesions/<id>", methods=['POST'])
+def update_sesion(id):
+
+    sesion_name = request.form['sesion_name']
+    duration = request.form['duration']
+    sesion_date = request.form['sesion_date']
+    sesion_time = request.form['sesion_time']
+    capacity = request.form['capacity']
+    active_status = request.form['active_status']
+    sesion = Sesion(sesion_name ,duration,sesion_date,sesion_time,capacity,active_status,id)
+
+    sesion_repositories.update(sesion)
+    return redirect ('/sesions')

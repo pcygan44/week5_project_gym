@@ -48,6 +48,6 @@ def sesions(member):
     return sesions
 
 def update(member):
-    sql = "UPDATE members SET(first_name, last_name, membership, active_status) = (%s,%s,%s,%s) WHERE id - %s"
+    sql = "UPDATE members SET(first_name, last_name, membership, active_status) = (%s,%s,%s,%s) WHERE id = %s"
     values = [member.first_name, member.last_name, member.membership, member.active_status, member.id]
     run_sql(sql, values)

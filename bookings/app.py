@@ -28,5 +28,24 @@ def create_sesion():
 def create_nember():
     return render_template ('member/addnewmember.html')
 
+@app.route('/sesions/<id>/edit')
+def edit_sesion(id):
+    return render_template('sesion/edit.html')
+
+@app.route('/sesions/<id>')
+def update_sesion(id):
+    return render_template('/sesion')
+
+
+@app.route('/members/<id>/edit')
+def edit_member(id):
+    return render_template('/members')
+
+@app.route('/members/<id>')
+def update_member(id):
+    return render_template('/members')
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

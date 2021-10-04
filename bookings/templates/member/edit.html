@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/members/{{member.id}}" method="post">
+    <div>
+        <lable for="first_name" >First Name: </lable>
+        <input type="text" id="first_name" name="first_name" value="{{member.first_name}}" required autofocus>
+    </div>
+    <div>
+        <lable for="last_name" >Last Name: </lable>
+        <input type="text" id="last_name" name="last_name" value="{{member.last_name}}" required autofocus>
+    </div>
+  
+    <div>
+        <lable for="membership" >Membership: </lable>
+        <select  id="membership" name="membership" >
+            <option value="true"
+            {% if member.membership == True %} selected="selected" {% endif %}>
+            True
+        </option>
+        <option value="false"
+        {% if member.membership == False %} selected="selected" {% endif %}>
+        False
+      </option>
+      </select>
+    </div>
+
+    <div>
+        <lable for="active_status " >Active status: </lable>
+        <select  id="active_status " name="active_status" >
+            <option value="true"
+            {% if member.active_status == True %} selected="selected" {% endif %}>
+            True
+        </option>
+        <option value="false"
+        {% if member.active_status == False %} selected="selected" {% endif %}>
+        False
+      </option>
+      </select>
+    </div>
+    <button type="Submit"> Add </button>
+</form>
+
+{% endblock %}
+

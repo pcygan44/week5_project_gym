@@ -12,6 +12,7 @@
         <p>Last Name: {{ member.last_name}}</p>
         <p>Membership: {{ member.membership}}</p>
         <p>Active Status: {{ member.active_status}}</p>
+        <p><a href="/member/{{member.id}}/edit"> Edit </a></p>
        
     </li>
     {% endfor %}

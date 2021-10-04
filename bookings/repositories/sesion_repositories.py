@@ -47,6 +47,6 @@ def member(sesion):
     return members
 
 def update(sesion):
-    sql = "UPDATE sesion SET (sesion_name, duration,sesion_date,sesion_time,capacity,active_status) = (%s,%s,%s,%s,%s,%s) WHERE sesion_id = %s"
-    values = [sesion.sesion_name, sesion.sesion_duration, sesion.sesion_date, sesion.sesion_time, sesion.capacity, sesion.active_status, sesion.id]
+    sql = "UPDATE sesions SET (sesion_name, duration,sesion_date,sesion_time,capacity,active_status) = (%s,%s,%s,%s,%s,%s) WHERE id = %s"
+    values = [sesion.sesion_name, sesion.duration, sesion.sesion_date, sesion.sesion_time, sesion.capacity, sesion.active_status, sesion.id]
     run_sql(sql, values)

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/sesions/{{sesion.id}}" method="post">
+    <div>
+        <lable for="sesion_name" >Type: </lable>
+        <input type="text" id="sesion_name" name="sesion_name" value="{{sesion.sesion_name}}" required autofocus>
+    </div>
+    <div>
+        <lable for="duration" >Duration: </lable>
+        <input type="number" id="duration" name="duration" value="{{sesion.duration}}" required autofocus>
+    </div>
+    <div>
+        <lable for="sesion_date" >Date: </lable>
+        <input type="text" id="sesion_date" name="sesion_date" value="{{sesion.sesion_date}}" required autofocus>
+    </div>
+    <div>
+        <lable for="sesion_time" >Time: </lable>
+        <input type="text" id="sesion_time" name="sesion_time" value="{{sesion.sesion_time}}" required autofocus>
+    </div>
+    <div>
+        <lable for="capacity" >Capacity:</lable>
+        <input type="number" id="capacity" name="capacity" value="{{sesion.capacity}}" required autofocus>
+    </div>
+    <div>
+        <lable for="active_status " >Active status: </lable>
+        <select  id="active_status " name="active_status" >
+            <option value="true"
+            {% if sesion.active_status == True %} selected="selected" {% endif %}>
+            True
+        </option>
+        <option value="false"
+        {% if sesion.active_status == False %} selected="selected" {% endif %}>
+        False
+      </option>
+      </select>
+    </div>
+    <button type="Submit"> Add </button>
+</form>
+
+{% endblock %}

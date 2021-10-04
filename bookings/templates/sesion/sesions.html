@@ -13,6 +13,7 @@
         <p>time: {{ sesion.sesion_time}}</p>
         <p>capacity: {{ sesion.capacity}}</p>
         <p>active: {{ sesion.active_status }} </p>
+        <p><a href="/sesion/{{sesion.id}}/edit"> Edit </a></p>
     </li>
     {% endfor %}
 </ul>
