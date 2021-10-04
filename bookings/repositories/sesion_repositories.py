@@ -50,3 +50,18 @@ def update(sesion):
     sql = "UPDATE sesions SET (sesion_name, duration,sesion_date,sesion_time,capacity,active_status) = (%s,%s,%s,%s,%s,%s) WHERE id = %s"
     values = [sesion.sesion_name, sesion.duration, sesion.sesion_date, sesion.sesion_time, sesion.capacity, sesion.active_status, sesion.id]
     run_sql(sql, values)
+
+def show_booked(id):
+    show_booked = []
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.members_id = members.id WHERE sesions_id = %s"
+    values = [id]
+
+    results = run_sql(sql, values)
+
+    for row in results:
+        member= Member(row['first_name'], row['last_name'],row['membership'],row['active_status'],row['id'])
+        show_booked.append(member)
+    return show_booked
+
+
+

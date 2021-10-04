@@ -1,16 +1,27 @@
 from flask import Flask, render_template, request , redirect
 from flask import Blueprint
+from controllers.sesion_controller import sesions
 from models.member import Member
+from models.booking import Booking
 import repositories.member_repositories as member_repositories
 import repositories.sesion_repositories as sesion_repositories
+import repositories.booking_repositories as booking_repositories
 
 members_blueprint = Blueprint("members", __name__ )
 
 @members_blueprint.route("/members")
 def members():
     members = member_repositories.select_all()
-    return render_template('member/members.html', members = members)
+    sesions = sesion_repositories.select_all()
+    return render_template('member/members.html', members = members, sesions = sesions)
 
+@members_blueprint.route("/member/<member_id>/bookings/<sesion_id>")
+def confirm_booking(member_id,sesion_id):
+    # memberId = member_repositories.select(member_id)
+    # sesionId = sesion_repositories.select(sesion_id)
+    booking = Booking(member_id,sesion_id)
+    booking_repositories.create_booking(booking)
+    return redirect("/bookings/bookings")
 
 @members_blueprint.route('/members/addnewmember')
 def new_members():
@@ -43,3 +54,5 @@ def update_member(id):
 
     member_repositories.update(member)
     return redirect('/members')
+
+# @members_blueprint.route('/members/<id>/bookings')

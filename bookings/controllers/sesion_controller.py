@@ -52,3 +52,9 @@ def update_sesion(id):
 
     sesion_repositories.update(sesion)
     return redirect ('/sesions')
+
+@sesions_blueprint.route("/sesions/<id>/booked")
+def show_booked(id):
+    members = sesion_repositories.show_booked(id)
+    
+    return render_template('/sesion/booked.html',members = members)

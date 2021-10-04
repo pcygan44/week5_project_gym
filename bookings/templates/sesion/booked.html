@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>All booked members </h1>
+
+<ul>
+    {% for member in members %}
+    <li>
+        <p>{{member.id}} </p>
+        <p>{{member.first_name}}</p>
+        <p>{{member.last_name}}</p>
+        <p>{{member.membership}}</p>
+        <p>{{member.active_status}}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+{% endblock %}

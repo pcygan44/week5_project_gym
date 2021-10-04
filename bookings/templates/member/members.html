@@ -13,7 +13,15 @@
         <p>Membership: {{ member.membership}}</p>
         <p>Active Status: {{ member.active_status}}</p>
         <p><a href="/member/{{member.id}}/edit"> Edit </a></p>
-       
+        <!-- <p><a href="/member/{{member.id}}/bookings"> Book Session </a></p> -->
+        <!-- <select> -->
+        {% for sesion in sesions %}
+            <!-- <option> -->
+                <a href="/member/{{member.id}}/bookings/{{sesion.id}}">{{sesion.sesion_name}}</a>
+            <!-- </option> -->
+            {% endfor %}
+        <!-- </select> -->
+        
     </li>
     {% endfor %}
 </ul>

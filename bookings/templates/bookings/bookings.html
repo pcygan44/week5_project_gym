@@ -1,8 +1,7 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% block content %}
 
-<h3> Sessions:</h3>
+<h3> Select Sessions to book:</h3>
 <ul>
     {% for sesion in sesions %}
     <li>
@@ -13,8 +12,7 @@
         <p>time: {{ sesion.sesion_time}}</p>
         <p>capacity: {{ sesion.capacity}}</p>
         <p>active: {{ sesion.active_status }} </p>
-        <p><a href="/sesion/{{sesion.id}}/edit"> Edit </a></p>
-        <p><a href="/sesions/{{sesion.id}}/booked"> List of booked members </a></p>
+        <p><a href="/sesion/{{sesion.id}}/confirm"> Book </a></p>
        
     </li>
     {% endfor %}
