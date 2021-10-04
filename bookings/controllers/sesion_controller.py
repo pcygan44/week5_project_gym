@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request , redirect
 from flask import Blueprint
 from models.sesion import Sesion
+from models.member import Member
 import repositories.sesion_repositories as sesion_repositories
 import repositories.member_repositories as member_repositories
 
@@ -20,14 +21,14 @@ def new_sesions():
 
 @sesions_blueprint.route("/sesions/addnew", methods=['POST'])
 def create_sesion():
-    print (request.form, '----------------------------')
+    # print (request.form, '----------------------------')
     sesion_name = request.form['sesion_name']
     duration = request.form['duration']
     sesion_date = request.form['sesion_date']
     sesion_time = request.form['sesion_time']
     capacity = request.form['capacity']
     active_status = request.form['active_status']
-    # member = member_repositories.select
+    # member = member_repositories.select(member.id)
     sesion = Sesion(sesion_name, duration, sesion_date, sesion_time, capacity, active_status)
     sesion_repositories.create_sesion(sesion)
     return redirect("/sesions")
