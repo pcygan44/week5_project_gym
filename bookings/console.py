@@ -25,14 +25,14 @@ sesion_repositories.create_sesion(sesion1)
 sesion2 = Sesion('Spining', 45,'10/10/2022',"12:00", 1, True)
 sesion_repositories.create_sesion(sesion2)
 
-booking1 = Booking(member3, sesion2)
+booking1 = Booking(member2, sesion2)
 booking_repositories.create_bookings(booking1)
 
-print(sesion_repositories.select_all())
+# print(sesion_repositories.select_all())
 
-resoult = member_repositories.select(62)
-print(resoult.last_name)
+# resoult = member_repositories.select()
+# print(resoult.last_name)
 
 
 
-pdb.set_trace()
+# pdb.set_trace()

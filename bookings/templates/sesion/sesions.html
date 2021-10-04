@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3> Sessions:</h3>
+<ul>
+    {% for sesion in sesions %}
+    <li>
+        <p>type: {{ sesion.sesion_name }}</p>
+        <hr>
+        <p>duration: {{ sesion.duration }} min </p>
+        <p>date: {{ sesion.sesion_date}}</p>
+        <p>time: {{ sesion.sesion_time}}</p>
+        <p>capacity: {{ sesion.capacity}}</p>
+        <p>active: {{ sesion.active_status }} </p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

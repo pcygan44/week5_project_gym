@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3> Add New Members:</h3>
+<form action ="/members/addnewmember" method="POST">
+    <div>
+        <label for="first_name"> First Name: </label>
+        <input type="text" id="first_name" name="first_name" placeholder="enter first name" required autofocues>
+    </div>
+
+    <div>
+        <lable for="last_name"> Duration: </lable>
+        <input type="text" id="last_name" name="last_name" placeholder="enter last name" required autofocus>
+    </div>
+
+    <div>
+        <laible for="membership"> Membership ?</laible>
+        <select id="membership" name="membership">
+            <option value="true"> Active </option>
+            <option value="false"> NOT Active</option>
+        </select>
+    </div>
+   
+    <div>
+        <laible for="active_status"> Active ?</laible>
+        <select id="active_status" name="active_status">
+            <option value="true"> Active </option>
+            <option value="false"> NOT Active</option>
+        </select>
+    </div>
+
+    <button type="Submit"> Add </button>
+</form>
+
+{% endblock %}

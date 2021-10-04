@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3> Add New Session:</h3>
+<form action ="/sesions/addnew" method="POST">
+    <div>
+        <label for="sesion_name"> Type: </label>
+        <input type="text" id="sesion_name" name="sesion_name" placeholder="enter name" required autofocues>
+    </div>
+
+    <div>
+        <lable for="duration"> Duration: </lable>
+        <input type="number" id="duration" name="duration" placeholder="enter duration" required autofocus>
+    </div>
+
+    <div> 
+        <laible for="sesion_date"> Date: </laible>
+        <input type="text" id="sesion_date" name="sesion_date" placeholder="enter Date" required autofocus>
+    </div>
+
+    <div>
+        <laible for="sesion_time"> Time: </laible>
+        <input type="text" id="sesion_time" name="sesion_time" placeholder="enter Time" required autofocus>
+    </div>
+
+    <div>
+        <laible for="capacity"> Capacity: </laible>
+        <input type="number" id="capacity" name="capacity" placeholder=" enter capacity" required autofocus>
+    </div>
+    <div>
+        <laible for="active_status"> Active ?</laible>
+        <select id="active_status" name="active_status">
+            <option value="true"> Active </option>
+            <option value="false"> NOT Active</option>
+        </select>
+    </div>
+
+    <button type="Submit"> Add </button>
+</form>
+
+{% endblock %}
