@@ -26,6 +26,8 @@ body{
     flex-wrap: wrap;
     width: 300px;
     margin: 0 auto;
+    align-items: center;
+    justify-content: center;
   }
   
   .task {
@@ -49,3 +51,8 @@ body{
     min-height: 100px;
   }
 
+.frontpage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
