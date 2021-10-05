@@ -47,10 +47,10 @@ def edit_member(id):
 def update_member(id):
 
     first_name = request.form['first_name']
-    first_name = request.form['last_name']
+    last_name = request.form['last_name']
     membership = request.form['membership']
     active_status = request.form['active_status']
-    member = Member(first_name,first_name,membership,active_status,id)
+    member = Member(first_name,last_name,membership,active_status,id)
 
     member_repositories.update(member)
     return redirect('/members')

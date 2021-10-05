@@ -2,9 +2,12 @@
 
 {% block content %}
 
-<h3> Sessions:</h3>
+<div class="top"><h3> Sessions:</h3></div>
 <ul>
     {% for sesion in sesions %}
+<div class="task">
+    <div class="content">
+
     <li>
         <p>type: {{ sesion.sesion_name }}</p>
         <hr>
@@ -12,11 +15,20 @@
         <p>date: {{ sesion.sesion_date}}</p>
         <p>time: {{ sesion.sesion_time}}</p>
         <p>capacity: {{ sesion.capacity}}</p>
-        <p>active: {{ sesion.active_status }} </p>
+        <p>active:  {% if sesion.active_status  == True %}
+            <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+          {% endif %}</p>
+
+
+
         <p><a href="/sesion/{{sesion.id}}/edit"> Edit </a></p>
         <p><a href="/sesions/{{sesion.id}}/booked"> List of booked members </a></p>
        
     </li>
+    </div>
+</div>
     {% endfor %}
 </ul>
 

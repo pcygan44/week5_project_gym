@@ -1,28 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div class="top">
 <h3> Members:</h3>
+</div>
 <ul>
     {% for member in members %}
+<div class="task">
+    <div class="content">
     <li>
         <p>Member ID: {{ member.id }} </p>
         <hr>
         <p>First Name: {{ member.first_name }} </p>
         <p>Last Name: {{ member.last_name}}</p>
-        <p>Membership: {{ member.membership}}</p>
-        <p>Active Status: {{ member.active_status}}</p>
+        <p>Membership:  {% if member.membership == True %}
+            <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+          {% endif %}</p>
+        
+        
+        <p>Active Status:
+        {% if member.active_status == True %}
+            <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+          {% endif %}</p>
+
+
+
         <p><a href="/member/{{member.id}}/edit"> Edit </a></p>
         <!-- <p><a href="/member/{{member.id}}/bookings"> Book Session </a></p> -->
         <!-- <select> -->
         {% for sesion in sesions %}
             <!-- <option> -->
-                <a href="/member/{{member.id}}/bookings/{{sesion.id}}">{{sesion.sesion_name}}</a>
+                <a href="/member/{{member.id}}/bookings/{{sesion.id}}">Book: {{sesion.sesion_name}}</a>
             <!-- </option> -->
             {% endfor %}
         <!-- </select> -->
         
     </li>
+    </div>
+</div>
     {% endfor %}
 </ul>
 

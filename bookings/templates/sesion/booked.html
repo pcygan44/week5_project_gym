@@ -1,17 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>All booked members </h1>
+<div class="top"><h1>All booked members </h1></div>
 
 <ul>
     {% for member in members %}
+<div class="task">
+    <div class="content">   
     <li>
-        <p>{{member.id}} </p>
-        <p>{{member.first_name}}</p>
-        <p>{{member.last_name}}</p>
-        <p>{{member.membership}}</p>
-        <p>{{member.active_status}}</p>
+        <p>ID Number:   {{member.id}} </p>
+        <hr>
+        <p>First Name:   {{member.first_name}}</p>
+        <p>Last Name:   {{member.last_name}}</p>
+        <p>Membership Status: {% if member.membership  == True %}
+            <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+          {% endif %}</p>
+
+
+        <p>Active Status: {% if member.active_status  == True %}
+            <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+          {% endif %}</p>
+
     </li>
+    </div>
+</div>    
     {% endfor %}
 </ul>
 
