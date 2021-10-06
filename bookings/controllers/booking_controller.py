@@ -14,4 +14,4 @@ bookings_blueprint = Blueprint("bookings", __name__)
 @bookings_blueprint.route("/bookings/bookings")
 def select_sesion():
     sesions = sesion_repositories.select_all()
-    return render_template("bookings/bookings.html", sesions = sesions )
+    return redirect ('/sesions')

@@ -63,5 +63,20 @@ def show_booked(id):
         show_booked.append(member)
     return show_booked
 
+# def check_allready_booked(id):
+#      resoult = select(id)
+#      return resoult.capacity
 
+# def check_capacity(id):
+#     sql = "SELECT * FROM sesions WHERE id = %s"
+#     values = [id]
+
+#     results = run_sql(sql, values)
+#     for row in results: #??
+
+#         sesion = Sesion(row['sesion_name'],row['duration'],row['sesion_date '],row['sesion_time'],row['capacity'],row['active_status'],row['id'])
+#         if sesion.capacity == sesion.capacity <= sesion.capacity + 1:
+#             return True
+#         else:
+#             return False
 

@@ -58,3 +58,4 @@ def show_booked(id):
     members = sesion_repositories.show_booked(id)
     
     return render_template('/sesion/booked.html',members = members)
+
